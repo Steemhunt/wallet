@@ -1,0 +1,508 @@
+html, body, .ant-list {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3, h5, h6 {
+  font-size: 16px;
+}
+
+button, .thin {
+  font-weight: 300;
+}
+
+html, body, .root, .app-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mobile-hidden {
+  @include responsive(tablet) { // max-width: 1023
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  display: none;
+  @include responsive(tablet) {
+    display: block;
+  }
+}
+
+
+.one-column-hidden {
+  @include responsive(tablet) { // max-width: 1023
+    display: none !important;
+  }
+}
+
+.two-column-hidden {
+  @media only screen and (min-width: 1024px) {
+    display: none !important;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.hide {
+  display: none !important;
+}
+
+.faded {
+  opacity: 0.3;
+}
+
+.pull-right {
+  float: right;
+}
+
+.spacer {
+  margin: 0 0.5em;
+}
+
+.top-margin {
+  margin-top: 0.5em !important;
+}
+
+.text-small {
+  font-size: 0.875em !important;
+  color: $text_grey !important;
+  line-height: 1.5;
+}
+
+.round-border {
+  border-radius: 9950vh !important;
+}
+
+.padded-container {
+  padding: 60px 40px;
+
+  @include responsive(mobile) {
+    padding: 60px 1.5rem;
+  }
+}
+
+.primary-gradient {
+  color: #fff;
+  background-color: $primary; /* For browsers that do not support gradients */
+  background: linear-gradient($primary, #fa7f92);
+}
+
+.inversed-color {
+  background-color: #fff !important;
+  color: $primary !important;
+  border-color: #fff !important;
+}
+
+.padded-button {
+  padding: 0.875em 2.25em !important;
+  height: auto !important;
+  font-weight: 300 !important;
+  text-decoration: none !important;
+  line-height: 1.2 !important;
+
+  span {
+    height: auto !important;
+    line-height: 1.2 !important;
+  }
+
+  @include responsive(mobile) {
+    font-size: 0.8rem;
+  }
+}
+
+.pink {
+  color: $primary;
+}
+
+.pink-filled {
+  background-color: rgba(252, 111, 111, 0.5);
+}
+
+.top-banner-bar {
+  display: none;
+  color: #fff;
+
+  @include responsive(tablet) {
+    position: absolute;
+    height: 50px;
+    z-index: 320;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    background: #333;
+  }
+
+  @include responsive(tiny) {
+    font-size: 0.875rem;
+  }
+}
+
+.with-banner {
+  @include responsive(tablet) {
+    margin-top: 50px;
+  }
+}
+
+.split-container {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+
+  .panel-left, .panel-right {
+    width: 50%;
+    height: 100%;
+    float: left;
+    overflow-x: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-overflow-style: none;
+    position: relative;
+
+    @include responsive(tablet) {
+      width: 100%;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+    }
+  }
+
+  .panel-left {
+    background-color: #fff;
+    box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px 0 rgba(0,0,0,0.20);
+    z-index: 100;
+
+    .back-button {
+      display: none;
+    }
+
+    .back-logo {
+      display: none;
+    }
+
+    @include responsive(tablet) {
+      left:  100%;
+      box-shadow: none;
+      z-index: 110;
+      transition: all 0.4s cubic-bezier(0.6, 0.07, 0, 0.99);
+
+      &.active {
+        left: 0;
+      }
+
+      .back-button, .back-logo {
+        display: block;
+        position: absolute;
+        left: 0.75rem;
+        top: 1.3rem;
+        color: #fff;
+        font-size: 1.65rem;
+        z-index: 150;
+      }
+
+      .back-button {
+        text-shadow: rgba(0, 0, 0, 0.3) 0 0 5px;
+      }
+
+      .back-logo {
+        width: 31px;
+        height: 45px;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .panel-right {
+    z-index: 0;
+
+    @include responsive(tablet) {
+      padding-top: 0;
+      left: 0;
+      z-index: 101;
+    }
+  }
+}
+
+.fake-link {
+  cursor: pointer;
+  color: $primary;
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+.hover-link {
+  color: $text_dark;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+// MARK: - AndDesign override
+
+.ant-btn {
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.ant-carousel .slick-dots {
+  bottom: 14px;
+
+  li {
+    border-radius: 50vh;
+    overflow: hidden;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+    button {
+      opacity: 0.5;
+      height: 4px;
+      border-radius: 50vh;
+      width: 24px;
+      overflow: hidden;
+    }
+
+    &.slick-active {
+      button {
+        width: 36px;
+      }
+    }
+  }
+}
+
+.center-loading {
+  text-align: center;
+  display: block;
+  margin: 40px 0;
+  color: $primary;
+
+  &.full-page {
+    svg { // override ant.design
+      display: inline-block;
+    }
+
+    margin: 0;
+    height: 60vh;
+    line-height: 60vh;
+  }
+}
+
+.diagonal-split-view {
+  overflow-x: hidden;
+  position: relative;
+
+  .top-container {
+    font-size: 1rem;
+    padding: 30px 20px 150px 20px;
+    text-align: center;
+    color: #fff;
+
+    @include responsive(tablet) {
+      padding: 23px 20px 150px 20px;
+    }
+
+    @include responsive(mobile) {
+      font-size: 0.8rem;
+    }
+
+    .featured-date {
+      display: inline-block;
+      margin-bottom: 48px;
+    }
+
+    h1 {
+      font-size: 3.125em;
+      margin-bottom: 0;
+      color: #fff;
+    }
+
+    h2 {
+      margin-top: 0.75em;
+      margin-bottom: 2rem;
+      font-size: 1.25em;
+      color: #fff;
+      font-weight: 300;
+    }
+    .checkitout-button {
+      margin-top: 0.75rem;
+    }
+  }
+
+  .diagonal-line {
+    width: 110%;
+    height: 150px;
+    margin-left: -5%;
+    margin-top: -2.5vw;
+    position: absolute;
+    background-color: #fff;
+    transform: rotate(-5.5deg);
+    z-index: 1;
+  }
+
+  .bottom-container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+
+    .timeline-container {
+      padding-top: 20px;
+      text-align: left;
+      font-size: 0.875rem;
+      overflow: hidden;
+      display: block;
+
+      .left {
+        float: left;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1.14;
+        margin-top: -3px;
+        color: #bbb;
+        text-align: right;
+        width: 50%;
+        padding-right: 15px;
+
+        li {
+          padding-bottom: 25px;
+        }
+      }
+      .ant-timeline { // override
+        float: left;
+        color: #666;
+        width: 50%;
+        margin-left: -5px;
+
+        .ant-timeline-item-last .ant-timeline-item-content {
+          min-height: auto;
+        }
+      }
+    } // .timeline-container
+  } // .bottom-container
+} // .diagonal-split-view
+
+.left-margin {
+  margin-left: 0.5rem;
+}
+
+.left-padded {
+  padding-left: 80px;
+
+  @include responsive(ipadpro) {
+    padding-left: 40px;
+  }
+
+  @include responsive(tablet) {
+    padding-left: 20px;
+  }
+}
+
+.right-padded {
+  padding-right: 80px;
+
+  @include responsive(ipadpro) {
+    padding-right: 40px;
+  }
+
+  @include responsive(tablet) {
+    padding-right: 20px;
+  }
+}
+
+.heading {
+  position: relative;
+
+  h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0;
+    color: $primary;
+
+    .close-button {
+      margin-left: 10px;
+      color: #ccc;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  .heading-sub {
+    color: $text_dark;
+    font-size: 0.875rem;
+    margin-bottom: 2.0rem;
+
+    @include responsive(tablet) {
+      margin-bottom: 1.5rem;
+    }
+  }
+} // .heading
+
+.level-help {
+  ol {
+    padding-left: 2em;
+  }
+}
+
+.party-container {
+  height: 42px;
+  margin-bottom: -24px;
+}
+
+.party {
+  font-size: 1em;
+  width: 1em;
+  display: inline-block;
+  margin: -0.5em 0 0 0.3125em;
+
+  &.big {
+    font-size: 1.875em;
+    margin-left: 0;
+  }
+}

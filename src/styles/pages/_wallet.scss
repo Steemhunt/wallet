@@ -1,0 +1,325 @@
+.wallet {
+  .balance-bar, .eth-bar, .withdraw-bar {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+    background-image: linear-gradient(to top, #fa7f92, #fc6f6f);
+    overflow: hidden;
+
+    .balance-row {
+      margin-bottom: 10px;
+
+      .token-bar-container {
+        margin-top: 3px;
+        display: flex;
+        height: 35px;
+        @include responsive(tablet) {
+          display: contents;
+        }
+      }
+
+      .token-bar {
+        width: 75%;
+        background: #ffc0cb;
+        position: relative;
+        @include responsive(tablet) {
+          width: 100%;
+          height: 30px;
+          margin-top: 0.5rem;
+        }
+        span.token-amount {
+          position: absolute;
+          top: 0;
+          color: #161616;
+          display: flex;
+          height: 100%;
+          justify-content: flex-start;
+          align-items: center;
+          padding-left: 10px;
+          font-size: 0.75rem;
+        }
+      }
+
+      .token-button {
+        width: 25%;
+
+        @include responsive(tablet) {
+          width: 100%;
+          margin-top: 0.5rem;
+        }
+
+        .submit-button {
+          width: 100%;
+          height: 100%;
+          font-size: 0.7rem;
+          border: none;
+          color: #fff;
+          background: #161616;
+          border-radius: 0;
+          font-weight: 200;
+          margin-left: 0.5rem;
+
+          button {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.7rem;
+          }
+
+          &[disabled] {
+            opacity: 0.7;
+          }
+
+          &:hover, &:active {
+            color: #fff;
+            background-color: #333;
+          }
+
+          @include responsive(tablet) {
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .small {
+      font-size: 0.875rem;
+      font-weight: 200;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      a {
+        color: #fff !important;
+      }
+    }
+
+    ul.small {
+      list-style: none;
+      padding: 0;
+      opacity: 0.8;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .balance {
+      margin-top: -0.3125rem;
+      font-size: 1.75rem;
+
+      button {
+        vertical-align: middle;
+        margin-left: 0.5rem;
+        margin-bottom: 0.2rem;
+        background-color: #ffc0cb;
+        border: none;
+        color: $primary;
+
+        &:hover, &:active {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  .eth-bar, .withdraw-bar {
+    color: $text_dark;
+    background-color: #efefef;
+
+    .input {
+      margin-top: 0.6875rem;
+      margin-right: 0.5rem;
+      width: 22rem;
+
+      @include responsive(tablet) {
+        width: 7rem;
+      }
+    }
+  }
+
+  .withdraw-bar {
+    .eth-address {
+      font-size: 1rem;
+      margin: 5px 0 20px 0;
+
+      @include responsive(tablet) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .ant-tabs-nav-wrap {
+    margin-top: 30px;
+    padding-left: 80px;
+
+    @include responsive(ipadpro) {
+      padding-left: 40px;
+    }
+
+    @include responsive(tablet) {
+      padding-left: 20px;
+    }
+
+    .ant-tabs-nav {
+      font-family: 'Comfortaa', cursive;
+      font-weight: 700;
+      font-size: 20px;
+
+      .ant-tabs-tab-active {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .transaction-heading {
+    margin-top: 50px;
+    margin-bottom: 0.75rem;
+  }
+
+  .placeholder {
+    text-align: center;
+
+    img {
+      width: 253px;
+      height: 253px;
+      display: block;
+      margin: 2rem auto 0.5rem auto;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: $light_grey;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .transactions {
+    .transaction-item {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      .icon {
+        margin-top: 1rem;
+        background-color: $primary;
+        vertical-align: -0.0625em;
+
+        &.sent {
+          background-color: #fff;
+          color: $primary;
+          border: 1px solid $primary;
+        }
+      }
+
+      .title {
+        color: $primary;
+      }
+
+      // override
+      .ant-list-item-meta-title {
+        margin: 0;
+      }
+
+      .memo {
+        color: $text_dark;
+
+        .tx-hash {
+          display: inline-block;
+          vertical-align: top;
+          max-width: 300px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          @include responsive(mobile) {
+            max-width: 100px;
+          }
+        }
+      }
+
+      .date {
+        color: $text_grey;
+        font-size: 0.8125rem;
+      }
+    }
+  }
+} // .wallet
+
+.transfer-modal {
+  .hunt-balance {
+    font-size: 2rem;
+    font-weight: 500;
+
+    @include responsive(tablet) {
+      font-size: 1.4rem;
+    }
+
+    .hunt-text {
+      color: $text_grey;
+      font-size: 14px;
+    }
+  }
+  .subtitle {
+    margin-bottom: 1em;
+  }
+  .agreement-text {
+    max-height: 100px;
+    background: #ededed;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .subtitle {
+    margin-top: 20px;
+    margin-bottom: 0.5em;
+  }
+
+  .transaction-fee {
+    margin-top: 0.5em;
+    color: $text_dark;
+    font-size: 0.875em;
+    overflow: hidden;
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+  }
+}
+
+.metamask-install-modal {
+  .ant-modal-confirm-content {
+    // override sibling selector
+    margin-left: 0px !important;
+
+    .metamask-install-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 15px 0px;
+      img {
+        margin: 20px 0px;
+        width: 80px;
+      }
+    }
+  }
+
+  .ant-modal-confirm-btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
