@@ -1,5 +1,7 @@
 .wallet {
-  .balance-bar, .eth-bar, .withdraw-bar {
+  .balance-bar,
+  .eth-bar,
+  .withdraw-bar {
     padding-top: 30px;
     padding-bottom: 30px;
     color: white;
@@ -72,7 +74,8 @@
             opacity: 0.7;
           }
 
-          &:hover, &:active {
+          &:hover,
+          &:active {
             color: #fff;
             background-color: #333;
           }
@@ -119,14 +122,16 @@
         border: none;
         color: $primary;
 
-        &:hover, &:active {
+        &:hover,
+        &:active {
           background-color: #fff;
         }
       }
     }
   }
 
-  .eth-bar, .withdraw-bar {
+  .eth-bar,
+  .withdraw-bar {
     color: $text_dark;
     background-color: #efefef;
 
@@ -175,6 +180,9 @@
     }
   }
 
+  .ant-list-item {
+  }
+
   .transaction-heading {
     margin-top: 50px;
     margin-bottom: 0.75rem;
@@ -199,6 +207,16 @@
 
   .transactions {
     .transaction-item {
+      padding-left: 80px;
+
+      @include responsive(ipadpro) {
+        padding-left: 40px;
+      }
+
+      @include responsive(tablet) {
+        padding-left: 20px;
+      }
+
       padding-top: 0.75rem;
       padding-bottom: 0.75rem;
 

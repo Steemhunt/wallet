@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Modal, notification } from 'antd';
 import metaMaskImage from 'assets/images/wallet/img-no-metamask@3x.png';
 import initializeWeb3 from 'web3.js';
-import { WalletConsumer } from './WalletContext';
+import { WalletConsumer } from 'contexts/WalletContext';
 
 export default ({ setRef }) => (
   <WalletConsumer>
@@ -100,7 +100,6 @@ class Web3 extends Component {
       ),
       okText: 'Connect to Metamask',
       onOk: async () => {
-        console.log('context', this.props.context);
         const { me, setEthAddress } = this.props.context;
 
         const message = `Connect this Ethereum address to your Steemhunt account, ${me}. (Timestamp: ${new Date().getTime()})`;

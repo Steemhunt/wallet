@@ -1,0 +1,517 @@
+.full-page {
+  min-height: 100vh;
+}
+
+.main-logo {
+  width: auto;
+  height: 81px;
+
+  @include responsive(mobile) {
+    height: 60px;
+  }
+}
+
+.home-page, .not-found-page {
+  position: relative;
+
+  &.primary-gradient {
+    background-color: #fc6f6f; /* For browsers that do not support gradients */
+    background: linear-gradient(#fc6f6f, #fa7f92);
+  }
+
+  .center-content {
+    padding: 4rem 1rem 0 1rem;
+    text-align: center;
+    color: #fff;
+
+    h1 {
+      font-size: 1.375rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0;
+      color: #fff;
+
+      @include responsive(mobile) {
+        font-size: 1.1rem;
+      }
+    }
+
+    h2 {
+      margin-top: 3.5rem;
+      margin-bottom: 3.5rem;
+      font-size: 2.375rem;
+      font-weight: normal;
+
+      @include responsive(ipadpro) {
+        font-size: 2rem;
+      }
+
+      @include responsive(mobile) {
+        font-size: 1.5rem;
+      }
+
+      @include responsive(tiny) {
+        font-size: 1.45rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    .roadmaps {
+      font-size: 0.875rem;
+      width: 450px;
+      margin: 3.5rem auto 0 auto;
+      text-align: left;
+
+      @include responsive(mobile) {
+        width: 100%;
+      }
+
+      .bar-title {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 1.2em;
+      }
+
+      .roadmap, .token-site {
+        color: #fff;
+        display: block;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        margin: 10px auto;
+        transition: all 0.3s ease;
+        text-decoration: none;
+
+        &:hover, &:focus, &:active, &.active {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      .roadmap, .token-site {
+        position: relative;
+        padding: 1.5rem;
+
+        @include responsive(mobile) {
+          padding: 1.5rem 1rem;
+        }
+
+        &:hover, &.live {
+          .img {
+            &.roadmap-1 {
+              background-image: url("assets/images/rh-logo-active@2x.png");
+            }
+
+             &.roadmap-2 {
+              background-image: url("assets/images/ih-logo-active@2x.png");
+            }
+          }
+        }
+
+        &.live {
+          background-color: #fff;
+
+          &:hover, &:focus, &:active, &.active {
+            background-color: rgba(255, 255, 255, 0.6);
+          }
+
+          h3 {
+            color: $primary;
+          }
+
+          p {
+            color: #707070;
+          }
+
+          .status {
+            color: #f5222d;
+            border: solid 1px #f5222d;
+          }
+        }
+
+        h3, p {
+          margin: 0 0 0 80px;
+          line-height: 1;
+
+          @include responsive(mobile) {
+            margin: 0 0 0 4.5rem;
+          }
+        }
+
+        h3 {
+          font-size: 1.125rem;
+          color: #fff;
+          margin-bottom: 0.2rem;
+        }
+
+        .img {
+          position: absolute;
+          left: 1.5rem;
+          top: 50%;
+          margin-top: -1.875rem;
+          width: 3.75rem;
+          height: 3.75rem;
+          background-size: 3.75rem 3.75rem;
+          background-repeat: no-repeat;
+
+          @include responsive(mobile) {
+            left: 1rem;
+          }
+
+          &.roadmap-1 {
+            background-image: url("assets/images/rh-logo-inactive@2x.png");
+          }
+          &.roadmap-2 {
+            background-image: url("assets/images/ih-logo-inactive@2x.png");
+          }
+        }
+        .status {
+          text-align: center;
+          float: right;
+          width: 100px;
+          margin-top: -1.78rem;
+          border-radius: 4px;
+          border: solid 1px #fff;
+
+          @include responsive(mobile) {
+            display: none;
+          }
+        }
+      } // .roadmap, .token-site
+
+      .token-site {
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+      }
+
+      p {
+        margin: 1rem 0;
+      }
+    } // .roadmaps
+
+    .notice {
+      font-size: 0.75rem;
+      padding: 0.8rem 0 1.2rem 0;
+      border-bottom: 1px solid #fff;
+      margin: 0 auto;
+      text-align: left;
+
+      a {
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
+
+    // override .ant-btn
+    .ant-btn {
+      margin-top: 3.5rem;
+      margin-bottom: 3.5rem;
+      transition: all 0.3s ease;
+
+      &:hover, &:focus, &:active, &.active {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border-color: #fff;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  } // .center-content
+} // .home-page, .not-found-page
+
+.not-found-page {
+  .center-content {
+    padding-top: 30vh;
+    h1 {
+      font-size: 1.6875rem;
+      margin-top: 4rem;
+    }
+  }
+}
+
+.padded-page {
+  padding: 105px 0;
+  overflow: hidden;
+  text-align: center;
+
+  @include responsive(mobile) {
+    padding: 80px 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p, a {
+    font-weight: 300;
+  }
+}
+
+.split-page {
+  max-width: 310px;
+  text-align: left;
+  display: inline-block;
+  font-size: 0.875rem;
+
+  @include responsive(mobile) {
+    max-width: 84%;
+  }
+
+  h2 {
+    color: $primary;
+  }
+
+  p {
+    color: $text_dark;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  .check-hall-of-fame {
+    @include responsive(mobile) {
+      margin-bottom: 2rem;
+      display: block;
+    }
+  }
+}
+
+.primary-gradient {
+  h2 {
+    color: #fff;
+  }
+}
+
+.grey-background {
+  background-color: #f6f6f6;
+
+  h2, h3 {
+    color: $primary;
+  }
+}
+
+.columned-page {
+  text-align: center;
+  padding: 3rem;
+  font-size: 0.8125rem;
+  color: #9b9b9b;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  img {
+    width: 27px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  p {
+    padding: 0 2rem;
+  }
+}
+
+.card-page {
+  h2 {
+    margin-bottom: 4rem;
+  }
+  .card-container {
+    display: flex;
+    justify-content: space-evenly;
+
+    @include responsive(mobile) {
+      display: inherit;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      width: 37%;
+      text-align: left;
+      color: #9b9b9b;
+      font-size: 0.875rem;
+      padding: 1rem 2rem;
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+      @include responsive(mobile) {
+        width: 80%;
+        margin: 0 auto;
+
+        &:first-child {
+          margin-bottom: 2rem;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      img {
+        vertical-align: baseline;
+        margin-left: 0.4rem;
+
+        &.steem-token {
+          height: 22px;
+        }
+
+        &.hunt-token {
+          height: 21px;
+        }
+      }
+
+      a {
+        display: block;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.page-3 {
+  color: #fff;
+
+  h2 {
+    margin-bottom: 60px;
+  }
+
+  .howto {
+    max-width: 300px;
+    margin: 20px auto;
+
+    .circle {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 40px;
+      font-size: 1.875rem;
+      box-shadow: 0 9px 12px 1px rgba(0,0,0,0.14), 0 3px 16px 2px rgba(0,0,0,0.12), 0 5px 6px 0 rgba(0,0,0,0.20);
+
+      .hunt-token-logo {
+        height: 38px;
+      }
+    }
+
+    h4 {
+      color: #fff;
+      font-size: 1.125rem;
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
+
+  .splitter {
+    font-size: 1.25rem;
+    margin: 1.5rem 0;
+    opacity: 0.9;
+  }
+}
+
+.side-image {
+  margin-left: 40px;
+  display: inline-block;
+  vertical-align: bottom;
+
+  @include responsive(mobile) {
+    margin-left: 0;
+  }
+
+  &.cat {
+    width: 201px;
+    height: 282px;
+  }
+
+  &.producthunt {
+    width: 197px;
+    height: 181px;
+    margin-bottom: 30px;
+  }
+}
+
+.page-last {
+  height: 90vh;
+  position: relative;
+
+  @include responsive(mobile) {
+    height: 100vh;
+  }
+
+  .left-container {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 110;
+    text-align: left;
+
+    @include responsive(ipadpro) {
+      top: 60px;
+      left: 60px;
+    }
+
+    @include responsive(mobile) {
+      top: 40px;
+      left: 40px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      line-height: 1.4;
+      margin: 2.5rem 0;
+      font-weight: normal;
+
+      @include responsive(mobile) {
+        font-size: 1.8rem;
+      }
+
+      @include responsive(tiny) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .post-button {
+      display: inline-block;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+  }
+
+  .bg-image {
+    z-index: 101;
+    height: 96vh;
+    position: absolute;
+    left: 76%;
+    transform: translateX(-50%);
+    bottom: 5%;
+
+    @include responsive(ipadpro) {
+      height: 90vh;
+    }
+
+    @include responsive(mobile) {
+      height: 82vh;
+    }
+
+    @include responsive(tiny) {
+      height: 60vh;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 110;
+    width: 100%;
+    text-align: center;
+
+    a {
+      font-size: 0.75rem;
+      color: #fff !important;
+    }
+  }
+}
+

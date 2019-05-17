@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Popconfirm, Input, Button, Checkbox } from 'antd';
 import { formatNumber } from 'utils/helpers/steemitHelpers';
-import { WalletConsumer } from './WalletContext';
+import { WalletConsumer } from 'contexts/WalletContext';
 
 const MIN_WITHDRAW = 10.01;
 const FEE = 10;
@@ -60,7 +60,8 @@ export default class TransferModal extends Component {
           isLoading,
           ethAddress,
           transferModalVisible,
-          toggleTransferModal
+          toggleTransferModal,
+          handleTransfer
         }) => {
           let availableBalance =
             parseFloat(balances.hunt_balance) -
@@ -96,7 +97,7 @@ export default class TransferModal extends Component {
                         'ERROR: You did not connect your ETH address'}
                     </div>
                   }
-                  onConfirm={() => this.props.handleTransfer(transferAmount)}
+                  onConfirm={() => handleTransfer(transferAmount)}
                   okText="Yes"
                   cancelText="No"
                 >

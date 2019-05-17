@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { WalletConsumer } from './WalletContext';
+import { WalletConsumer } from 'contexts/WalletContext';
 import { Avatar, Icon, List, Tabs } from 'antd';
 import { formatNumber } from 'utils/helpers/steemitHelpers';
 import { shortFormat } from 'utils/date';
 import tokenPlaceholder from 'assets/images/wallet/token-placeholder@2x.png';
 
 const NETWORK = 'https://etherscan.io';
-
 
 export default () => {
   const [activeTabKey, setActiveKey] = useState('1')
@@ -30,7 +29,7 @@ export default () => {
                 dataSource={transactions}
                 className="transactions"
                 renderItem={t => (
-                  <List.Item className="left-padded transaction-item">
+                  <List.Item className="transaction-item">
                     <List.Item.Meta
                       avatar={
                         me === t.sender ? (
@@ -82,7 +81,7 @@ export default () => {
                 dataSource={withdrawals}
                 className="transactions"
                 renderItem={w => (
-                  <List.Item className="left-padded transaction-item">
+                  <List.Item className="transaction-item">
                     <List.Item.Meta
                       avatar={
                         w.status === 'sent' ? (

@@ -1,11 +1,14 @@
 import React from 'react';
 import api from 'utils/api';
-import Web3 from './Web3';
+import Web3 from 'pages/Wallet/Web3';
 import {notification} from 'antd';
 import { extractErrorMessage } from 'utils/errorMessage';
 
+
 const WalletContext = React.createContext();
 const { Provider, Consumer } = WalletContext;
+const NETWORK = 'https://etherscan.io';
+const CONTRACT = '0x9aab071b4129b083b01cb5a0cb513ce7eca26fa5';
 
 class WalletProvider extends React.Component {
   constructor(props) {
@@ -24,14 +27,39 @@ class WalletProvider extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.getTransactions();
+  componentWillMount() {
+    // let accessToken = null;
+    // if (this.props.location.search) {
+    //   try {
+    //     accessToken = queryString.parse(this.props.location.search).access_token;
+    //   } catch(e) {
+    //     console.error('URI Parse error', this.props.location.search);
+    //   }
+    // }
+
+    // this.props.getMe(accessToken); // with existing token
+    // this.refresher = setInterval(this.props.refreshMe, 60000); // to update voting power gage
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
+
+  async componentDidMount() {
+    await this.getTransactions();
   }
 
   toggleTransferModal = () =>
     this.setState({ transferModalVisible: !this.state.transferModalVisible });
 
-  handleTransfer() {}
+  handleTransfer = async (amount) => {
+    try {
+        const result = await api.post(`/erc_transactions.json`, { amount: amount }, true);
+        this.setState({...result})
+      } catch(e) {
+         notification['error']({ message: extractErrorMessage(e) });
+      }
+  }
 
   setEthAddress = async (address, message, signature) => {
     try {
@@ -42,15 +70,21 @@ class WalletProvider extends React.Component {
       }
   }
 
-  etherscanLink() {}
+  etherscanLink(walletAddress) {
+    return `${NETWORK}/token/${CONTRACT}?a=${walletAddress}`
+  }
 
   getTransactions = async () => {
+    this.setState({isLoading: true});
     try {
       // const result = await api.get(`/hunt_transactions.json`, null, true);
 
       // for testing purposes
       const result = require('test_hunt_transactions.json');
-      this.setState({ ...result });
+
+      setTimeout(() => {
+      this.setState({ ...result, isLoading: false });
+      }, 1000)
     } catch (e) {
       notification['error']({ message: extractErrorMessage(e) });
     }
@@ -65,6 +99,8 @@ class WalletProvider extends React.Component {
           etherscanLink: this.etherscanLink,
           setEthAddress: this.setEthAddress,
           requestSignTransaction: this.web3 && this.web3.requestSignTransaction,
+          handleTransfer: this.handleTransfer,
+          getTransactions: this.getTransactions
         }}
       >
         {this.props.children}
